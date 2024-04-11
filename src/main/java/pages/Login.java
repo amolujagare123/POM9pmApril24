@@ -1,3 +1,5 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,13 @@ public class Login {
     WebElement txtPassword;
     @FindBy (xpath = "//button")
     WebElement btnLogin;
+
+    @FindBy (xpath = "//a")
+    WebElement forgotPassword;
+    public void clickForgotPassword()
+    {
+        forgotPassword.click();
+    }
 
     public Login(WebDriver driver)
     {
