@@ -1,14 +1,17 @@
 package pages.clients;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AddClient {
-
+    WebDriver driver;
     public AddClient(WebDriver driver)
     {
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//input[@id='client_name']")
@@ -30,6 +33,51 @@ public class AddClient {
     @FindBy(xpath = "//input[@id='client_vat_id']") WebElement vATID;
     @FindBy(xpath = "//input[@id='client_tax_code']") WebElement taxesCode;
     @FindBy(xpath = "//button[@id='btn-submit']") WebElement save;
+
+    @FindBy(id="select2-client_language-container")
+    WebElement languageContainer;
+
+    @FindBy(xpath = "//input[@type='search']")
+    WebElement searchBox;
+
+
+
+    public void setLanguage(String language)
+    {
+        languageContainer.click();
+        searchBox.sendKeys(language);
+        String xpath = "//li[normalize-space()='"+language+"']";
+        driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @FindBy(id="select2-client_country-container")
+    WebElement countryContainer;
+    public void setCountry(String country)
+    {
+        countryContainer.click();
+        searchBox.sendKeys(country);
+        String xpath = "//li[normalize-space()='"+country+"']";
+        driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @FindBy(id="select2-client_gender-container")
+    WebElement genderContainer;
+
+    public void setGender(String gender)
+    {
+        genderContainer.click();
+        String xpath = "//li[normalize-space()='"+gender+"']";
+        driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @FindBy(xpath = "//input[@id='client_birthdate']")
+    WebElement birthdate;
+
+    public void setBirthDate(String bDate)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('value','"+bDate+"')",birthdate);
+    }
 
 
     public void setClientName(String name) {

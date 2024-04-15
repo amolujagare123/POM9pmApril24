@@ -32,13 +32,18 @@ public class AddClientTest {
 
         AddClient addClient = new AddClient(driver);
 
+
         addClient.setClientName("John");
         addClient.setClientSurname("Doe");
+        addClient.setLanguage("Spanish");
         addClient.setStreetAddress1("123 Main St");
         addClient.setStreetAddress2("Apt 101");
         addClient.setCity("New York");
         addClient.setState("NY");
         addClient.setZipCode("10001");
+        addClient.setCountry("India");
+        addClient.setGender("Female");
+        addClient.setBirthDate("05/09/1985");
         addClient.setPhoneNumber("555-1234");
         addClient.setFaxNumber("555-5678");
         addClient.setMobileNumber("555-9876");
