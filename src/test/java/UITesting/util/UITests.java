@@ -54,4 +54,17 @@ public class UITests {
         }
         return result;
     }
+
+    public static String styleValueOfElement(WebElement element,String styleName)
+    {
+        String result = "";
+        try {
+            result   =  element.getCssValue(styleName);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+        return result;
+    }
 }

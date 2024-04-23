@@ -1,5 +1,6 @@
 package regression.clients;
 
+import Utility.DoLogin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,8 +16,8 @@ import java.io.IOException;
 
 import static Utility.ForDataProvider.getMyData;
 
-public class AddClientDataProviderTest {
-    WebDriver driver;
+public class AddClientDataProviderTest extends DoLogin {
+  /*  WebDriver driver;
     @BeforeClass
     public void doLogin()
     {
@@ -30,7 +31,7 @@ public class AddClientDataProviderTest {
         login.setTxtPassword("admin123");
         login.clickLogin();
     }
-
+*/
     @Test (dataProvider = "getData")
     public void addClientTest(String clientName, String clientSurname, String language, String streetAddress1,
                               String streetAddress2, String city, String state, String zipCode, String country,
